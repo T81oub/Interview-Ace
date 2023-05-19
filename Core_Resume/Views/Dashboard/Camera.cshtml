@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Emotion Detection";
+}
+
+<h1>Emotion Detection</h1>
+
+<div>
+    <video id="video" width="640" height="480" autoplay></video>
+    <canvas id="canvas" width="640" height="480"></canvas>
+    <br />
+    <button id="startbutton">Take Photo</button>
+</div>
+
+<div>
+    <h2>Emotion Scores:</h2>
+    <ul id="emotion-scores"></ul>
+    <h2>Average Emotion Score:</h2>
+    <p id="average-score"></p>
+</div>
+
+@section scripts {
+    <script>
+        (function () {
+            var video = document.getElementById('video');
+            var canvas = document.getElementById('canvas');
+            var startbutton = document.getElementById('startbutton');
+            var emotions = ["Angry", "Disgust", "Fear", "Happy", "Neutral", "Sad", "Surprise"];
+            var scores = {};
+
+            navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+                .then(function (stream) {
+                    video.srcObject = stream;
+                    video.play();
+                })
+                .catch(function (err) {
+                    console.log("An error occurred: " + err);
+                });
+
+            startbutton.addEventListener('click', function () {
+                var context = canvas.getContext('2d');
+                context.drawImage(video, 0, 0, 640, 480);
+                var dataURL = canvas.toDataURL();
+                $.ajax({
+                    type: 'POST',
+                    url: '/Home/ProcessImage',
+                    data: { image: dataURL },
+                    success: function (result) {
+                        scores[result.type] = result.score;
+                        updateScores();
+                    },
+                    error: function () {
+                        alert('An error occurred while processing the image.');
+                    }
+                });
+            });
+
+            function updateScores() {
+                $('#emotion-scores').empty();
+                var totalScore = 0;
+                var numScores = 0;
+                for (var i = 0; i < emotions.length; i++) {
+                    if (emotions[i] in scores) {
+                        $('#emotion-scores').append('<li>' + emotions[i] + ': ' + scores[emotions[i]] + '</li>');
+                        totalScore += scores[emotions[i]];
+                        numScores++;
+                    }
+                }
+                var averageScore = numScores > 0 ? totalScore / numScores : 0;
+                $('#average-score').text(averageScore.toFixed(2));
+            }
+        })();
+    </script>
+}

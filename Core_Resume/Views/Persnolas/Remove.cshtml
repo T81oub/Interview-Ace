@@ -1,0 +1,47 @@
+﻿@model Core_Resume.Models.Persnola
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Remove">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="UserName" />
+          
+            <div class="form-group">
+                <label asp-for="photo" class="control-label"></label>
+                @if (Model.photo != null)
+                {
+
+                    <img style="width:400px; " src="data:image;base64,@Convert.ToBase64String(Model.photo)" />
+
+                }
+                else
+                {
+                    @if (String.Equals(Model.Gender, "F"))
+                    {
+
+                        <img style="width:200px; " src="https://cdn1.vectorstock.com/i/1000x1000/08/60/profile-icon-female-user-person-avatar-symbol-vector-20910860.jpg" />
+
+                    }
+                    else
+                    {
+
+                        <img style="width:200px; " src="https://cdn4.vectorstock.com/i/1000x1000/08/38/avatar-icon-male-user-person-profile-symbol-vector-20910838.jpg" />
+
+                    }
+                }
+                
+                <br />
+               
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Remove" class="btn btn-danger" />
+            </div>
+        </form>
+</div>
+
+</div>

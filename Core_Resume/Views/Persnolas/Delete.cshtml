@@ -1,0 +1,97 @@
+﻿@model Core_Resume.Models.Persnola
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h4>Are you sure you want to delete this?</h4>
+<div>
+
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nationality)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nationality)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EducationalLevel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EducationalLevel)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tel)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.marital_status)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.marital_status)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.photo)
+        </dt>
+        @if (Model.photo != null)
+        {
+            <dd class="col-sm-10">
+                <img style="width:400px; " src="data:image;base64,@Convert.ToBase64String(Model.photo)" />
+            </dd>
+        }
+        else
+        {
+            @if (String.Equals(Model.Gender, "F"))
+            {
+                <dd class="col-sm-10">
+                    <img style="width:200px; " src="https://cdn1.vectorstock.com/i/1000x1000/08/60/profile-icon-female-user-person-avatar-symbol-vector-20910860.jpg" />
+                </dd>
+            }
+            else
+            {
+                <dd class="col-sm-10">
+                    <img style="width:200px; " src="https://cdn4.vectorstock.com/i/1000x1000/08/38/avatar-icon-male-user-person-profile-symbol-vector-20910838.jpg" />
+                </dd>
+            }
+        }
+    </dl>
+    
+    <form asp-action="Delete" >
+        <input type="hidden" asp-for="UserName" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+       
+    </form>
+</div>

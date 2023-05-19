@@ -1,0 +1,114 @@
+﻿@model Core_Resume.Models.Persnola
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Enter Personal Details</h2>
+@Context.Session.GetString("Language")
+@ViewBag.Text
+@ViewBag.Message
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label asp-for="LastName" class="control-label"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label asp-for="DateOfBirth" class="control-label"></label>
+                    <input asp-for="DateOfBirth" class="form-control" />
+                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label asp-for="Nationality" class="control-label"></label>
+                    @*<input asp-for="Nationality" class="form-control" />*@
+                    <select asp-for="Nationality" class="form-control">
+                        <option>India</option>
+                        <option>Spain</option>
+                        <option>USA</option>
+                        <option>Morocco</option>
+                    </select>
+                    <span asp-validation-for="Nationality" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label asp-for="EducationalLevel" class="control-label"></label>
+                    @* <input asp-for="EducationalLevel" class="form-control" />*@
+                    <select asp-for="EducationalLevel" class="form-control">
+                        <option>High School</option>
+                        <option>Diploma</option>
+                        <option>Bachelor's degree</option>
+                        <option>Master's degree</option>
+                        <option>Doctorate</option>
+                    </select>
+                    <span asp-validation-for="EducationalLevel" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label asp-for="marital_status" class="control-label"></label>
+                    @* <input asp-for="Branch" class="form-control" />*@
+                    <select asp-for="marital_status" class="form-control">
+                        <option>Married</option>
+                        <option>UnMarried</option>
+                    </select>
+                    <span asp-validation-for="marital_status" class="text-danger"></span>
+                </div>
+            </div>
+          
+          
+           
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label asp-for="Tel" class="control-label"></label>
+                    <input asp-for="Tel" class="form-control" />
+                    <span asp-validation-for="Tel" class="text-danger"></span>
+
+                </div>
+                <div class="form-group col-sm-6">
+                    <label asp-for="photo" class="control-label"></label>
+                    <input type="file" asp-for="photo" />
+                    <span asp-validation-for="photo" class="text-danger"></span>
+
+                </div>
+            </div>
+            <div class="row">
+                <div  class="col-sm-6" style="user-select:none">
+                    <label asp-for="Gender" class="control-label"></label>
+                    @* <input asp-for="Gender" class="form-control" />*@
+                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                    <input asp-for="Gender" type="radio" name="Gender" value="M" /> &nbsp;Male &nbsp;&nbsp; &nbsp;
+                    <input asp-for="Gender" type="radio" name="Gender" value="F" /> &nbsp;Female
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

@@ -1,0 +1,41 @@
+﻿@model Core_Resume.Models.LanAndHob
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+<h4>Languages known by you</h4>
+<hr />
+<div class="row">
+
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Language" class="control-label"></label>
+                <input asp-for="Language" class="form-control" />
+                <span asp-validation-for="Language" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<table>
+    <tr>
+        <th>Languages</th>
+    </tr>
+    @foreach (LanAndHob l in ViewBag.LanAndHobList)
+    {
+        <tr>
+            <td>@l.Language</td>
+        </tr>
+    }
+</table>
+<a asp-controller="Summry_CarrerObjective" asp-action="Details" class="btn btn-secondary" style="position: relative;"> Back </a>
+<a asp-controller="Skills" asp-action="Create" class="btn btn-success" style="position: relative;">next >>> Skills </a>
+
+

@@ -1,0 +1,355 @@
+﻿
+<style>
+    .data .content-data .videocontainer {
+        margin: 30px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .data .content-data .btnrecord {
+        padding: 10px 20px;
+        font-size: 16px;
+        background: var(--blue);
+        border-radius: 5px;
+        color: var(--light);
+        cursor: pointer;
+        border: none;
+        transition: all .3s ease;
+    }
+
+    .data .content-data .btnstop {
+        padding: 10px 20px;
+        font-size: 16px;
+        background: var(--blue);
+        border-radius: 5px;
+        color: var(--light);
+        cursor: pointer;
+        border: none;
+        transition: all .3s ease;
+    }
+    .data .content-data .btnrecord:hover {
+        background: var(--dark-blue);
+    }
+
+    }
+
+   .data .content-data .btnstop:hover {
+        background: var(--dark-blue);
+    }
+</style>
+@{
+    var questions = ViewData["Questions"] as string[];
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+@if (questions == null || !questions.Any())
+{
+    <p>No more questions</p>
+}
+else
+{
+    <div class="data" id="target-element-id">
+		<div class="content-data">
+            <div class="head">
+                <h3>@questions[0]</h3>
+            </div>
+
+            <form asp-controller="Dashboard" asp-action="NextQuestion" method="post" id="videoForm">
+                
+        <div class="form-group">
+            <input type="text" placeholder="Type..." id="prompt" name="prompt">
+           
+            <div class="col-sm-1 col-xs-1 reply-recording">
+                <i class="fa fa-microphone fa-2x" aria-hidden="true" onclick="startRecording();"></i>
+            </div>
+            <button type="submit" class="btn-send" onclick="document.forms[0].submit();"><i class='bx bxs-send'></i></button>
+            
+        </div>
+                
+            </form>
+            <div class="videocontainer">
+            <div>
+                <video autoplay muted playsinline id="videoLive"></video>
+                <video controls playsinline id="videoRecorded" name="video" style="display:none;"></video>
+            </div>
+            <div>
+                    <button type="button" id="buttonStart" class="btnrecord"><i class="bx bx-video" onclick="startRecording();"></i></button>
+                    <button type="button" id="buttonStop" class="btnstop" disabled><i class="bx bx-stop"></i></button>
+            </div>
+
+            
+            </div>
+    </div>
+
+    </div>
+
+    
+
+    <script>
+        const videoForm = document.querySelector('#videoForm')
+        videoForm.addEventListener('submit', async event => {
+            event.preventDefault();
+            const promptInput = document.querySelector('#prompt');
+
+            const blob = new Blob(recordedChunks, {
+                type: 'video/webm',
+            });
+
+            const formData = new FormData();
+            formData.append('video', blob, 'video.webm');
+            formData.append('prompt', promptInput.value);
+
+            const blobField = formData.get('video');
+            const submitForm = document.createElement('form');
+            submitForm.action = '@Url.Action("NextQuestion", "Dashboard")';
+            submitForm.method = 'POST';
+            submitForm.enctype = 'multipart/form-data';
+            if (!promptInput.value || typeof promptInput.value !== 'string') {
+                console.error('Prompt input is not valid');
+                return;
+            }
+
+            if (!(blobField instanceof File)) {
+                console.error('Blob field is not valid');
+                return;
+            }
+
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.name = 'video';
+
+            // Create a DataTransfer object and add the File object to it
+            const dataTransfer = new DataTransfer();
+            dataTransfer.items.add(blobField);
+
+            // Set the files property of the input element to the DataTransfer object
+            input.files = dataTransfer.files;
+
+            submitForm.appendChild(input);
+
+            document.body.appendChild(submitForm);
+            await new Promise(resolve => {
+                submitForm.addEventListener('load', resolve);
+                submitForm.submit();
+            });
+
+            recordedChunks = [];
+            const recordedVideo = new Blob(recordedChunks, {
+                type: 'video/webm',
+            });
+
+            videoRecorded.src = URL.createObjectURL(recordedVideo);
+        });
+
+    </script>
+    <script async>
+        let mediaRecorder;
+        let recordedChunks = [];
+        function readText(text) {
+            const speech = new SpeechSynthesisUtterance(text);
+            speech.volume = 1;
+            speech.rate = 0.7;
+            speech.pitch = 0.4;
+            speech.lang = 'en-US';
+
+            const voices = window.speechSynthesis.getVoices();
+            const femaleVoice = voices.find(voice => voice.name.includes('Google US English') && voice.name.includes('Female'));
+            speech.voice = femaleVoice;
+
+            window.speechSynthesis.speak(speech);
+        }
+        
+        window.addEventListener('load', () => {
+            const question = document.querySelector('.head h3').textContent;
+            readText(question);
+        });
+
+
+        (async function () {
+            const promptInput = document.querySelector('#prompt')
+            const buttonStart = document.querySelector('#buttonStart')
+            const buttonStop = document.querySelector('#buttonStop')
+            const videoLive = document.querySelector('#videoLive')
+            const videoRecorded = document.querySelector('#videoRecorded')
+            const videoForm = document.querySelector('#videoForm')
+            const stream = await navigator.mediaDevices.getUserMedia({
+                video: true,
+                audio: true,
+            })
+
+            videoLive.srcObject = stream
+
+            if (!MediaRecorder.isTypeSupported('video/webm')) {
+                console.warn('video/webm is not supported')
+            }
+
+            mediaRecorder = new MediaRecorder(stream, {
+                mimeType: 'video/webm',
+            })
+
+            buttonStart.addEventListener('click', () => {
+                mediaRecorder.start()
+                buttonStart.setAttribute('disabled', '')
+                buttonStop.removeAttribute('disabled')
+                buttonStart.innerHTML = '<i class="fas fa-video"></i> Recording'
+            })
+
+            buttonStop.addEventListener('click', () => {
+                mediaRecorder.stop()
+                buttonStart.removeAttribute('disabled')
+                buttonStop.setAttribute('disabled', '')
+                buttonStart.innerHTML = '<i class="fas fa-video"></i> Start'
+                videoLive.style.display = 'none'
+                videoRecorded.style.display = 'block'
+            })
+
+            mediaRecorder.addEventListener('dataavailable', event => {
+                videoRecorded.src = URL.createObjectURL(event.data)
+                if (event.data.size > 0) {
+                    recordedChunks.push(event.data)
+                    videoForm.querySelector('button[type="submit"]').removeAttribute('disabled')
+                }
+            })
+
+            videoForm.addEventListener('submit', async event => {
+                event.preventDefault();
+                const promptInput = document.querySelector('#prompt');
+
+                const blob = new Blob(recordedChunks, {
+                    type: 'video/webm',
+                });
+
+                const formData = new FormData();
+                formData.append('video', blob, 'video.webm');
+                formData.append('prompt', promptInput.value);
+
+                const blobField = formData.get('video');
+                const submitForm = document.createElement('form');
+                submitForm.action = '@Url.Action("NextQuestion", "Dashboard")';
+                submitForm.method = 'POST';
+                submitForm.enctype = 'multipart/form-data';
+                if (!promptInput.value || typeof promptInput.value !== 'string') {
+                    console.error('Prompt input is not valid');
+                    return;
+                }
+
+                if (!(blobField instanceof File)) {
+                    console.error('Blob field is not valid');
+                    return;
+                }
+
+                const input = document.createElement('input');
+                input.type = 'file';
+                input.name = 'video';
+                const dataTransfer = new DataTransfer();
+                dataTransfer.items.add(blobField);
+
+                // Set the files property of the input element to the DataTransfer object
+                input.files = dataTransfer.files;
+                submitForm.appendChild(input);
+
+                document.body.appendChild(submitForm);
+
+                // Send the form data using AJAX
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', submitForm.action);
+                xhr.onload = () => {
+                    if (xhr.status === 200) {
+                        console.log(xhr.responseText);
+                        // Handle the response from the server here
+                    } else {
+                        console.error(xhr.statusText);
+                    }
+                };
+                xhr.onerror = () => console.error(xhr.statusText);
+                xhr.send(formData);
+
+                recordedChunks = [];
+                const recordedVideo = new Blob(recordedChunks, {
+                    type: 'video/webm',
+                });
+
+                videoRecorded.src = URL.createObjectURL(recordedVideo);
+            });
+
+
+        })();
+    </script>
+    
+
+    <script>
+        function startRecording() {
+            const recognition = new webkitSpeechRecognition();
+            recognition.continuous = true;
+            recognition.interimResults = true;
+            recognition.lang = 'en-US';
+            recognition.start();
+
+            let finalTranscript = '';
+
+            recognition.onresult = event => {
+                const latestResult = event.results[event.resultIndex];
+                const transcript = latestResult[0].transcript;
+
+                if (latestResult.isFinal) {
+                    finalTranscript += transcript;
+                    finalTranscript = capitalize(finalTranscript);
+                    document.getElementById('prompt').value = finalTranscript;
+                } else {
+                    const interimTranscript = capitalize(transcript);
+                    document.getElementById('prompt').value = finalTranscript + interimTranscript;
+                }
+            };
+
+            recognition.onerror = event => {
+                console.error(event.error);
+            };
+
+            recognition.onend = () => {
+                console.log('Recognition ended.');
+            };
+        }
+
+        function capitalize(s) {
+            return s.charAt(0).toUpperCase() + s.slice(1);
+        }
+
+        async function sendRecording() {
+            const formData = new FormData();
+            const prompt = document.getElementById('prompt').value;
+            const file = new File([prompt], 'recording.wav', {
+                type: 'audio/wav',
+            });
+            formData.append('audio', file);
+
+            const response = await fetch('/SpeechToText/ConvertToText', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (response.ok) {
+                const text = await response.text();
+                const words = text.split(' ');
+                const prompt = document.getElementById('prompt');
+                prompt.value = words[0];
+                for (let i = 1; i < words.length; i++) {
+                    setTimeout(() => {
+                        prompt.value = prompt.value + ' ' + words[i];
+                    }, i * 500);
+                }
+            } else {
+                console.error('Error converting audio to text');
+            }
+        }
+
+       
+            
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    }
+
+
+
+

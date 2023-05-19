@@ -1,0 +1,35 @@
+﻿@model Core_Resume.Models.Registration
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="containernew">
+<h1>Details</h1>
+
+<div>
+    <h4>Registration</h4>
+    <h5 style="color:red">@ViewBag.Message</h5>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserEmail)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserEmail)
+        </dd>
+    </dl>
+</div>
+<div>
+
+    <a class="form-group" asp-area="" asp-controller="Persnolas" asp-action="Details">
+        <input type="submit" value="PersnolInfo" class="btn btn-primary" />
+    </a>
+
+</div>
+</div>

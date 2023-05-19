@@ -1,0 +1,160 @@
+﻿@using Core_Resume.Controllers;
+@using Newtonsoft.Json;
+@{
+    ViewData["Title"] = "Result";
+    var result = ViewData["Result"] as List<FeedbackHistory>;
+}
+<style>
+    .containerpage {
+        
+        margin: auto;
+        padding: 30px;
+        background-color: #f4f4f4;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .result-header {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 30px;
+        color: #333;
+    }
+</style>
+<div class="containerpage" id="target-element-id">
+    @if (result != null && result.Count > 0)
+    {
+        foreach (var feedbackHistory in result)
+        {
+            <div class="result-container">
+                <div class="result-header">Question:</div>
+                <div>@feedbackHistory.Question</div>
+                <div class="result-header">Answer:</div>
+                <div>@feedbackHistory.Answer</div>
+                <div class="result-header">Feedback:</div>
+                <div>@feedbackHistory.Feedback</div>
+                <div class="result-header">Improvement:</div>
+                <div>@feedbackHistory.Improvement</div>
+                @if (feedbackHistory.Emotions != null)
+                {
+                    <div>SEmotion.Name</div>
+                    foreach (var Emotion in feedbackHistory.Emotions)
+                    {
+                       
+                        <div>@Emotion.Name</div>
+                       
+                    }
+                    <div class="result-header">Emotions:</div>
+                    <div class="data">
+                        <div class="content-data">
+                            <div class="head">
+                                <h3>Emotions Report</h3>
+                                <div class="menu">
+                                    <i class='bx bx-dots-horizontal-rounded icon'></i>
+                                    <ul class="menu-link">
+                                        <li><a href="#">Edit</a></li>
+                                        <li><a href="#">Save</a></li>
+                                        <li><a href="#">Remove</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="chart">
+                                <div id="chartz"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script type="text/javascript">
+                       
+                        @{
+                            var emotionsList = new[] { "Angry", "Disgust", "Fear", "Happy", "Neutral", "Sad", "Surprise" };
+                            var data = new Dictionary<string, List<float>>();
+                            foreach (var emotion in emotionsList){
+                                data[emotion] = Enumerable.Repeat(0f, feedbackHistory.Emotions.Count).ToList();
+                            }
+                        }
+
+
+                        @if (feedbackHistory.Emotions != null && feedbackHistory.Emotions.Any())
+                        {
+                            for (var i = 0; i < feedbackHistory.Emotions.Count; i++)
+                            {
+                                var emotion = feedbackHistory.Emotions[i];
+                                if (emotionsList.Contains(emotion.Name))
+                                {
+                                    var index = i;
+                                    data[emotion.Name][index] = emotion.Score;
+                                }
+                            }
+                        }
+                        var data = @Html.Raw(JsonConvert.SerializeObject(data));
+                                                    var options = {
+                            series: [{
+                                name: 'Angry',
+                                data: data["Angry"]
+                            },
+                            {
+                                name: 'Disgust',
+                                data: data["Disgust"]
+                            },
+                            {
+                                name: 'Fear',
+                                data: data["Fear"]
+                            }
+                                , {
+                                name: 'Happy',
+                                data: data["Happy"]
+                            },
+                            {
+                                name: 'Neutral',
+                                data: data["Neutral"]
+                            },
+                            {
+                                name: 'Sad',
+                                data: data["Sad"]
+                            },
+
+                            {
+                                name: 'Surprise',
+                                data: data["Surprise"]
+                            },
+                            ],
+                            chart: {
+                                height: 350,
+                                type: 'area'
+                            },
+                            dataLabels: {
+                                enabled: false
+                            },
+                            stroke: {
+                                curve: 'smooth'
+                            },
+                            xaxis: {
+                                type: 'datetime',
+                                categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+                            },
+                            tooltip: {
+                                x: {
+                                    format: 'dd/MM/yy HH:mm'
+                                },
+                            },
+                        };
+
+                        var chart = new ApexCharts(document.querySelector("#chartz"), options);
+                        chart.render();
+                    </script>
+
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@latest/dist/apexcharts.min.css" />
+                    <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest/dist/apexcharts.min.js"></script>
+
+
+                }
+
+            </div>
+        }
+    }
+    else
+    {
+        <div>No result</div>
+    }
+</div>

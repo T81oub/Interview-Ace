@@ -1,0 +1,36 @@
+﻿@model Core_Resume.Models.Summry_CarrerObjective
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<h4>Summry_CarrerObjective</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Username" />
+            
+            <div class="form-group">
+                <label asp-for="CarrerObjective" class="control-label"></label>
+                <input asp-for="CarrerObjective" class="form-control" />
+                <span asp-validation-for="CarrerObjective" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Summry" class="control-label"></label>
+                <input asp-for="Summry" class="form-control" />
+                <span asp-validation-for="Summry" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

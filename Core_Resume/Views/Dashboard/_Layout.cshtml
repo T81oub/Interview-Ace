@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="~/assets/img/favicon.png" rel="icon">
+	<link href="~/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="~/Dashboard/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="~/css/bootstrap.min.css">
+	<title>AdminSite</title>
+	<style>
+		b1 {
+			margin: 0;
+			padding: 0;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			background-color: #F0F0F0;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+		}
+
+		.container {
+			margin: auto;
+			justify-content: center;
+			background-color: #FFFFFF;
+			border-radius: 10px;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+			padding: 40px;
+			max-width: 400px;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+
+
+		.checkbox {
+			display: flex;
+			align-items: center;
+			margin: 10px 0;
+		}
+
+			.checkbox input[type="checkbox"] {
+				margin-right: 10px;
+				appearance: none;
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				border: 2px solid #CCCCCC;
+				outline: none;
+				cursor: pointer;
+				position: relative;
+				transition: background-color 0.2s ease;
+			}
+
+				.checkbox input[type="checkbox"]:before {
+					content: "";
+					display: block;
+					position: absolute;
+					top: 3px;
+					left: 3px;
+					width: 14px;
+					height: 14px;
+					border-radius: 50%;
+					background-color: #CCCCCC;
+					transition: transform 0.2s ease;
+				}
+
+				.checkbox input[type="checkbox"]:checked:before {
+					transform: translateX(18px);
+					background-color: #4CAF50;
+				}
+
+			.checkbox label {
+				font-size: 16px;
+				color: #444444;
+				margin: 0;
+				cursor: pointer;
+				user-select: none;
+			}
+
+		.btna {
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			border-radius: 5px;
+			cursor: pointer;
+			margin-top: 20px;
+			transition: background-color 0.2s ease;
+		}
+
+			.btna:hover {
+				background-color: #3E8E41;
+			}
+
+			.btna:active {
+				background-color: #3E8E41;
+				box-shadow: none;
+				transform: translateY(2px);
+			}
+	</style>
+</head>
+<body>
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand"><i class='bx bxs-briefcase icon'></i> Interview Ace</a>
+		<ul class="side-menu">
+			<li><a href="#" class="active"><i class='bx bxs-dashboard icon'></i> Dashboard</a></li>
+			<li class="divider" data-text="main">Main</li>
+			<li>
+				<a asp-area="" asp-controller="dashboard" asp-action="Privacy"><i class='bx bxs-inbox icon'></i> Satrt Interivew <i class='bx bx-chevron-right icon-right'></i></a>
+	
+			</li>
+			<li><a href="#"><i class='bx bxs-chart icon'></i> Charts</a></li>
+			<li><a asp-area="" asp-controller="Home" asp-action="Index"><i class='bx bxs-widget icon'></i> Create Resume</a></li>
+			<li class="divider" data-text="table">Interview</li>
+			<li>
+				<a asp-area="" asp-controller="Dashboard" asp-action="RecommendationPage"><i class='bx bx-table icon'></i>Job Recommendation</a>
+				
+			</li>
+			<li>
+				<a asp-area="" asp-controller="" asp-action=""><i class='bx bxs-notepad icon'></i> Interviews Feedback <i class='bx bx-chevron-right icon-right'></i></a>
+				<ul class="side-dropdown">
+					<li><a href="#">Basic</a></li>
+					<li><a href="#">Select</a></li>
+					<li><a href="#">Checkbox</a></li>
+					<li><a href="#">Radio</a></li>
+				</ul>
+			</li>
+		</ul>
+		<div class="ads">
+			<div class="wrapper">
+				<a href="#" class="btn-upgrade">Upgrade</a>
+				<p>Become a <span>PRO</span> member and enjoy <span>All Features</span></p>
+			</div>
+		</div>
+	</section>
+	<!-- SIDEBAR -->
+	<!-- NAVBAR -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu toggle-sidebar'></i>
+			<form action="#">
+				<div class="form-group">
+					<input type="text" placeholder="Search...">
+					<i class='bx bx-search icon'></i>
+				</div>
+			</form>
+			<a href="#" class="nav-link">
+				<i class='bx bxs-bell icon'></i>
+				<span class="badge">5</span>
+			</a>
+			<a href="#" class="nav-link">
+				<i class='bx bxs-message-square-dots icon'></i>
+				<span class="badge">8</span>
+			</a>
+			<a href="#" class="nav-link">
+				@Context.Session.GetString("Username")
+			</a>
+			
+			<div class="profile">
+				
+				<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+				<ul class="profile-link">
+
+					<li><a href="~/Dashboard/Profile"><i class='bx bxs-user-circle icon'></i> Profile</a></li>
+					<li><a href="#"><i class='bx bxs-cog'></i> Settings</a></li>
+					<li>
+						<a asp-area="" asp-controller="Login" asp-action="Logout" >
+							<i class='bx bxs-log-out-circle'></i> Logout
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<!-- NAVBAR -->
+		<!-- MAIN -->
+		<main>
+			@RenderBody()
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- NAVBAR -->
+
+	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+	<script src="~/Dashboard/script.js"></script>
+</body>
+</html>

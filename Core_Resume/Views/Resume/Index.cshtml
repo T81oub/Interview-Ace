@@ -1,0 +1,321 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+	Layout = "_Layout.cshtml";
+}
+
+<div class="row">
+	<div class="col-sm-3 no-print" id="left">
+		<div id="panel">
+			<a class="text-center" asp-controller="ProjectDetails" asp-action="Create" > Back </a>
+			<h3 class="text-center" data-toggle="modal">Resume</h3>
+			<!--   <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#usageModal">VIEW INSTRUCTIONS</button> -->
+			<button class="btn btn-block btn-success" onclick="window.print()">PRINT AS PDF</button>
+
+			<hr>
+
+			<h4 class="text-center">Template settings</h4>
+			<br>
+			<h5>
+				Contact lines
+				<div class="toggle-button">
+					<div class="toggle-option selected" data-toggle="contact" id="contact3">2</div>
+					<div class="toggle-option" data-toggle="contact" id="contact4">3</div>
+					<div class="toggle-option" data-toggle="contact" id="contact5">4</div>
+				</div>
+			</h5>
+			<h5>
+				Horizontal margin
+				<div class="toggle-button">
+					<div class="toggle-option" data-toggle="margin" id="margin1">1</div>
+					<div class="toggle-option" data-toggle="margin" id="margin2">2</div>
+					<div class="toggle-option" data-toggle="margin" id="margin3">3</div>
+					<div class="toggle-option selected" data-toggle="margin" id="margin4">4</div>
+					<div class="toggle-option" data-toggle="margin" id="margin5">5</div>
+					<div class="toggle-option" data-toggle="margin" id="margin6">6</div>
+				</div>
+			</h5>
+			<h5>
+				Line spacing
+				<div class="toggle-button">
+					<div class="toggle-option" data-toggle="line" id="line1">1</div>
+					<div class="toggle-option" data-toggle="line" id="line2">2</div>
+					<div class="toggle-option" data-toggle="line" id="line3">3</div>
+					<div class="toggle-option selected" data-toggle="line" id="line4">4</div>
+					<div class="toggle-option" data-toggle="line" id="line5">5</div>
+					<div class="toggle-option" data-toggle="line" id="line6">6</div>
+				</div>
+			</h5>
+			<h5>
+				Center column no.
+				<div class="toggle-button">
+					<div class="toggle-option multi-select" data-toggle="column" id="column1">1</div>
+					<div class="toggle-option multi-select" data-toggle="column" id="column2">2</div>
+					<div class="toggle-option multi-select" data-toggle="column" id="column3">3</div>
+					<div class="toggle-option multi-select" data-toggle="column" id="column4">4</div>
+				</div>
+			</h5>
+
+			<br>
+
+			<h5>
+				Font type
+				<div class="toggle-button">
+					<div class="toggle-option" data-toggle="font" id="fontVerdanaSans">1</div>
+					<div class="toggle-option selected" data-toggle="font" id="fontMonospace">2</div>
+					<div class="toggle-option" data-toggle="font" id="fontRoboto">3</div>
+					<div class="toggle-option" data-toggle="font" id="fontDroid">4</div>
+				</div>
+			</h5>
+			<h5>
+				Title case
+				<div class="toggle-button">
+					<div class="toggle-option selected" data-toggle="case" id="caseNormal">Default</div>
+					<div class="toggle-option" data-toggle="case" id="caseUpper">Uppercase</div>
+				</div>
+			</h5>
+			<h5>
+				Title style
+				<div class="toggle-button">
+					<div class="toggle-option selected" data-toggle="title" id="titleRuled">Ruled</div>
+					<div class="toggle-option" data-toggle="title" id="titleShaded">Shaded</div>
+				</div>
+			</h5>
+			<h5>
+				Title rule position
+				<div class="toggle-button">
+					<div class="toggle-option selected" data-toggle="rule" id="ruleAbove">Above title</div>
+					<div class="toggle-option" data-toggle="rule" id="ruleBelow">Below title</div>
+				</div>
+			</h5>
+			<br>
+			<h5>
+				Projects layout
+				<div class="toggle-button">
+					<div class="toggle-option selected" data-toggle="projects" id="projects1">L1</div>
+					<div class="toggle-option" data-toggle="projects" id="projects2">L2</div>
+				</div>
+			</h5>
+			<br>
+
+			<h5>
+				<button class="btn btn-sm btn-block btn-primary" data-toggle="modal" data-target="#sectionToggleModal">Show/Hide sections</button>
+			</h5>
+
+			<hr>
+
+
+			<h5>
+				List style :
+				<div class="toggle-button">
+					<button class="btn btn-xs custom-button" onclick="changeListStyle('disc');">&#9899;</button>
+					<button class="btn btn-xs custom-button" onclick="changeListStyle('circle');">&#9898;</button>
+					<button class="btn btn-xs custom-button" onclick="changeListStyle('square');">&#9632;</button>
+					<button class="btn btn-xs custom-button" onclick="changeListStyle('dash');">-</button>
+					<button class="btn btn-xs custom-button" onclick="changeListStyle('decimal');">1.</button>
+					<button class="btn btn-xs custom-button" onclick="changeListStyle('upper-roman');">I.</button>
+					<button class="btn btn-xs custom-button" onclick="changeListStyle('lower-roman');">i.</button>
+					<button class="btn btn-xs custom-button" onclick="changeListStyle('upper-alpha');">A.</button>
+					<button class="btn btn-xs custom-button" onclick="changeListStyle('lower-alpha');">a.</button>
+				</div>
+			</h5>
+
+		</div>
+
+	</div>
+
+
+	<div class="col-sm-9 text-center" id="right">
+@if (Model.Personal != null)
+		{
+			<div id="page" class="droid">
+
+				<div class="row" style="margin-bottom:10px;">
+					<div class="col-sm-8">
+						<div id="info" style="padding-top:50px; padding-bottom: 0px;">
+							<p id="contentName" style=" font-size: 50px;">@Model.Personal.FirstName @Model.Personal.LastName</p>
+						</div>
+					</div>
+					<div class="col-sm-4" style="text-align: right;padding-top: 40px; padding-bottom: 0px;">
+						<p>@Model.Personal.Tel</p>
+						<p style="margin-top:-10px"><span id="contactLink1">xyzabc@hotmail.com</span>
+						<p style="margin-top:-10px; margin-bottom: 0px;"><span id="contactLink2">@Model.Personal.Address</span></p>
+					</div>
+				</div>
+
+
+				<div class="section" id="sectionEducation">
+					<div class="section-title ruled rule-above">
+						<hr class="hr-above">
+						<h4><strong>Education</strong></h4>
+						<hr class="hr-below">
+					</div>
+					<ul class="nobullet">
+						<li>
+							<div class="text"><strong> Educational Level :</strong>  @Model.Personal.EducationalLevel</div>
+							<div class="text">State / Province: <strong>@Model.Education.State</strong><br>City: <strong> @Model.Education.City</strong></div>
+							<br>
+							<div class="text"><strong> School / College,</strong>  @Model.Education.School_Or_College</div>
+							<div class="text">Board/University: <strong>@Model.Education.Board_or_Uni</strong><br>Qualification: <strong>@Model.Education.Standard_or_Degree</strong></div>
+							<br>
+							<div class="text"><strong>Stream,</strong> @Model.Education.Field</div>
+							<div class="text">Passing Year: <strong>@Model.Education.year</strong><br>CGPA (Optional): <strong>@Model.Education.cgpa</strong></div>
+						</li>
+					</ul>
+				</div>
+
+				@if (Model.WorkHistory != null)
+				{
+					<div class="section" id="sectionExperience">
+						<div class="section-title ruled rule-above">
+						<hr class="hr-above">
+						<h4><strong>Experience</strong></h4>
+						<hr class="hr-below">
+					</div>
+					<ul>
+						<li>
+								<div class="text"><strong>@Model.WorkHistory.JobTitle, </strong> @Model.WorkHistory.Employer</div>
+								<div class="text">@Model.WorkHistory.StartDate - @Model.WorkHistory.EndDate</div>
+								<div class="text">@Model.WorkHistory.City</div>
+								<div class="text">@Model.WorkHistory.State</div>
+							<div class="text">
+								Worked on Customer Web Application for social media management.<br>
+								Developed frontend using Angular 7 & Bootstrap and backend Rest-APIs using Spring-boot & MongoDB.<br>
+								Worked in System Design, System Testing & API integration from scratch.
+							</div>
+						</li>
+						
+					</ul>
+				</div>
+				}
+
+				<div class="section" id="sectionPublications">
+					<div class="section-title ruled rule-above">
+						<hr class="hr-above">
+						<h4><strong>Publications</strong></h4>
+						<hr class="hr-below">
+					</div>
+					<ul>
+						<li>
+							<div>
+								<div class="title">Advanced analysis of damping motion</div>
+								<div class="time right">PCES 2010</div>
+							</div>
+							<div>
+								<div class="mentor">Mentors</div>
+							</div>
+						</li>
+						<li>
+							<div>
+								<div class="title">Efficient ranking of search results</div>
+								<div class="time right">LOCS 2010</div>
+							</div>
+							<div>
+								<div class="mentor">Mentors</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+
+				<div class="section" id="sectionProjects">
+					<div class="section-title ruled rule-above">
+						<hr class="hr-above">
+						<h4><strong>Projects</strong></h4>
+						<hr class="hr-below">
+					</div>
+					<ul>
+						@foreach (ProjectDetails l in Model.Projects)
+						{
+							
+							<li>
+								<div>
+									<div class="title">Project title</div>
+									<div class="time right">@l.Projectname</div>
+								</div>
+								<div>
+									<div class="mentor tab">Project Link</div>
+								</div>
+								<div>
+									<div class="text">@l.projectLink.</div>
+								</div>
+							</li>
+						}
+						
+					</ul>
+				</div>
+
+
+				<div class="section" id="sectionSkills">
+					<div class="section-title ruled rule-above">
+						<hr class="hr-above">
+						<h4><strong>Technical skills</strong></h4>
+						<hr class="hr-below">
+					</div>
+					<ul>
+						<li>
+							<strong><span class="skillCategory">Skills</span> :</strong>
+							@foreach (Skills s in Model.Skills)
+							{
+
+								<div>@s.Skillname ,</div>
+									
+							}
+							
+						</li>
+						<li>
+							<strong><span class="skillCategory">Programming languages</span> :</strong>
+							@foreach (LanAndHob s in Model.Languages)
+							{
+
+								<div>@s.Language ,</div>
+
+							}
+						</li>
+						
+						
+					</ul>
+				</div>
+
+
+				
+
+				<div class="section" id="sectionFooterMessage">
+					<div class="section-title ruled rule-above">
+						<hr class="hr-above">
+						<h6><strong>(References available on request)</strong></h6>
+					</div>
+				</div>
+
+			</div>
+		}
+	</div>
+		
+
+			</div>
+		
+			</div>
+		
+		<div class="modal fade" id="sectionToggleModal" tabindex='-1'>
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<div class="checkbox"><label><input type="checkbox" name="sectionToggle" checked="true" value="sectionEducation">Education</label></div>
+				<div class="checkbox"><label><input type="checkbox" name="sectionToggle" checked="true" value="sectionExperience">Experience</label></div>
+				<div class="checkbox"><label><input type="checkbox" name="sectionToggle" checked="true" value="sectionPublications">Publications</label></div>
+				<div class="checkbox"><label><input type="checkbox" name="sectionToggle" checked="true" value="sectionProjects">Projects</label></div>
+				<div class="checkbox"><label><input type="checkbox" name="sectionToggle" checked="true" value="sectionSkills">Technical Skills</label></div>
+				<div class="checkbox"><label><input type="checkbox" name="sectionToggle" checked="true" value="sectionResponsibility">Positions of Responsibility</label></div>
+				<div class="checkbox"><label><input type="checkbox" name="sectionToggle" checked="true" value="sectionAchievements">Achievements</label></div>
+				<div class="checkbox"><label><input type="checkbox" name="sectionToggle" checked="true" value="sectionCourses">Key courses taken</label></div>
+				<div class="checkbox"><label><input type="checkbox" name="sectionToggle" checked="true" value="sectionlinks">Links</label></div>
+				<div class="checkbox"><label><input type="checkbox" name="sectionToggle" checked="true" value="sectionCurricular">Hobbies</label></div>
+				<div class="checkbox"><label><input type="checkbox" name="sectionToggle" value="sectionFooterMessage">References message</label></div>
+			</div>
+		</div>
+	</div>
+
+				}

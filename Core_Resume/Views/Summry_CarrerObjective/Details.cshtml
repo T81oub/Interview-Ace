@@ -1,0 +1,35 @@
+﻿@model Core_Resume.Models.Summry_CarrerObjective
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div>
+    <h4>Summry_CarrerObjective</h4>
+    <hr />
+    <dl class="row">
+        
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CarrerObjective)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CarrerObjective)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Summry)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Summry)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-controller="WorkHistories" asp-action="Details" class="btn btn-secondary" style="position: relative;"> Back </a>
+    <a asp-controller="Summry_CarrerObjective" asp-action="Edit" class="btn btn-dark" style="position: relative;">Edit </a>
+    <a asp-controller="Summry_CarrerObjective" asp-action="Delete" class="btn btn-danger" style="position: relative;">Delete </a>
+
+
+
+    <a href="@Url.Action("Create", "LanAndHobs")" class="btn btn-success" style="position: relative; right: -50%;"> Next Step>> Summry_CarrerObjective </a>
+</div>

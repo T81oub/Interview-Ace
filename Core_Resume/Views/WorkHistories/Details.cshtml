@@ -1,0 +1,69 @@
+﻿@model Core_Resume.Models.WorkHistory
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div>
+    <h4>WorkHistory</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.username)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.JobTitle)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.JobTitle)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Employer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Employer)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.City)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.State)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.status)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-controller="Educationals" asp-action="Details" class="btn btn-secondary" style="position: relative;"> Back </a>
+    <a asp-controller="WorkHistories" asp-action="Edit" class="btn btn-dark" style="position: relative;">Edit </a>
+    <a asp-controller="WorkHistories" asp-action="Delete" class="btn btn-danger" style="position: relative;">Delete </a>
+
+
+    <a href="@Url.Action("Details", "Summry_CarrerObjective")" class="btn btn-success" style="position: relative; right: -50%;"> Next Step>> Summry_CarrerObjective </a>
+</div>

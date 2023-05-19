@@ -1,0 +1,40 @@
+﻿@model Core_Resume.Models.Login
+@{
+    ViewData["Title"] = "Login";
+}
+<div class="containernew">
+<h1>Login</h1>
+<h5 style="color:red">@ViewBag.Message</h5>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary" />
+                <a asp-controller="Registration" asp-action="Register">
+                    <input type="button" value="Register" class="btn btn-primary" />
+                </a>
+
+            </div>
+            <div>
+                <a asp-controller="login" asp-action="Forgot">Forgot Password???</a>
+
+            </div>
+        </form>
+    </div>
+</div>
+</div>

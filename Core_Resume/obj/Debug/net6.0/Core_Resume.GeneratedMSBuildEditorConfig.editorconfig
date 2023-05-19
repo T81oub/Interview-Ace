@@ -1,0 +1,229 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Core_Resume
+build_property.RootNamespace = Core_Resume
+build_property.ProjectDir = C:\Users\User\Desktop\Nouveau dossier (2)\Core_Resume\Core_Resume\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\User\Desktop\Nouveau dossier (2)\Core_Resume\Core_Resume
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Dashboard/Camera.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXENhbWVyYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Dashboard/GetUserprofile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEdldFVzZXJwcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Dashboard/NextQuestion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXE5leHRRdWVzdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Dashboard/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXFByaXZhY3kuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Dashboard/Recommendation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXFJlY29tbWVuZGF0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Dashboard/RecommendationPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXFJlY29tbWVuZGF0aW9uUGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Dashboard/Result.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXFJlc3VsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Dashboard/UserProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXFVzZXJQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Dashboard/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Educationals/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWR1Y2F0aW9uYWxzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Educationals/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWR1Y2F0aW9uYWxzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Educationals/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWR1Y2F0aW9uYWxzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Educationals/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWR1Y2F0aW9uYWxzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/LanAndHobs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFuQW5kSG9ic1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Landingpage/Contactus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFuZGluZ3BhZ2VcQ29udGFjdHVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Landingpage/Features.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFuZGluZ3BhZ2VcRmVhdHVyZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Landingpage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFuZGluZ3BhZ2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Landingpage/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFuZGluZ3BhZ2VcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Login/Forgot.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cRm9yZ290LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Login/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Login/UpdatePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cVXBkYXRlUGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Persnolas/checkOTP.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc25vbGFzXGNoZWNrT1RQLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Persnolas/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc25vbGFzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Persnolas/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc25vbGFzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Persnolas/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc25vbGFzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Persnolas/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc25vbGFzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Persnolas/Remove.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc25vbGFzXFJlbW92ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/ProjectDetails/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdERldGFpbHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Registration/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmF0aW9uXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Registration/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmF0aW9uXFJlZ2lzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Registration/v2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmF0aW9uXHYyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Registration/Verify.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmF0aW9uXFZlcmlmeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Resume/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdW1lXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Resume/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdW1lXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Shared/PartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxWaWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Skills/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2tpbGxzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Summry_CarrerObjective/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VtbXJ5X0NhcnJlck9iamVjdGl2ZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Summry_CarrerObjective/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VtbXJ5X0NhcnJlck9iamVjdGl2ZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Summry_CarrerObjective/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VtbXJ5X0NhcnJlck9iamVjdGl2ZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Summry_CarrerObjective/Download.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VtbXJ5X0NhcnJlck9iamVjdGl2ZVxEb3dubG9hZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Summry_CarrerObjective/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VtbXJ5X0NhcnJlck9iamVjdGl2ZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/WorkHistories/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya0hpc3Rvcmllc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/WorkHistories/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya0hpc3Rvcmllc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/WorkHistories/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya0hpc3Rvcmllc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/WorkHistories/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya0hpc3Rvcmllc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Nouveau dossier (2)/Core_Resume/Core_Resume/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-9vd48l1a27

@@ -1,0 +1,110 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+    var question = ViewData["Questions"];
+}
+<style>
+    .containerpage {
+        max-width: 800px;
+        margin: auto;
+        padding: 30px;
+        background-color: #f4f4f4;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 30px;
+        color: #333;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        margin-left: 10px;
+        font-size: 18px;
+        color: #555;
+    }
+
+    input[type="radio"] {
+        opacity: 0;
+        position: absolute;
+    }
+
+        input[type="radio"] + label {
+            position: relative;
+            padding-left: 35px;
+            cursor: pointer;
+            display: inline-block;
+            color: #555;
+        }
+
+            input[type="radio"] + label:before {
+                content: '';
+                display: inline-block;
+                position: absolute;
+                left: 0;
+                top: 2px;
+                width: 20px;
+                height: 20px;
+                border: 1px solid #007bff;
+                border-radius: 50%;
+            }
+
+        input[type="radio"]:checked + label:before {
+            background-color: #007bff;
+        }
+
+    input[type="submit"] {
+        font-size: 18px;
+        padding: 10px 30px;
+        background-color: #007bff;
+        border: none;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        input[type="submit"]:hover {
+            background-color: #0069d9;
+        }
+</style>
+
+<div class="containerpage">
+    <h1 class="text-center mt-5 mb-3">What field do you want to practice for?</h1>
+
+    <form asp-controller="Dashboard" asp-action="Privacy" method="post">
+
+        <div class="form-group">
+            <input class="form-check-input" type="radio" id="interviewee" name="selectedOption" value="interviewee" />
+            <label class="form-check-label" for="interviewee">Data Analytics</label>
+        </div>
+
+        <div class="form-group">
+            <input class="form-check-input" type="radio" id="web-dev" name="selectedOption" value="web-dev" />
+            <label class="form-check-label" for="web-dev">Web developer</label>
+        </div>
+
+        <div class="form-group">
+            <input class="form-check-input" type="radio" id="graphic-design" name="selectedOption" value="graphic-design" />
+            <label class="form-check-label" for="graphic-design">Graphic designer</label>
+        </div>
+
+        <div class="form-group">
+            <input class="form-check-input" type="radio" id="project-management" name="selectedOption" value="project-management" />
+            <label class="form-check-label" for="project-management">Project Management</label>
+        </div>
+        
+            <input type="submit" value="Next" class="btn btn-primary mt-3" />
+        </form>
+    </div>
+</div>

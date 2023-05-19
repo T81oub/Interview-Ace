@@ -1,0 +1,34 @@
+﻿@model Core_Resume.Models.Skills
+
+<h4>Skills</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Skillname" class="control-label"></label>
+                <input asp-for="Skillname" class="form-control"/>
+                <span asp-validation-for="Skillname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ADD" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<table>
+    <tr>
+        <th>Skills /th>
+    </tr>
+    @foreach (Skills l in ViewBag.List)
+    {
+        <tr>
+            <td>@l.Skillname</td>
+        </tr>
+    }
+</table>
+<a asp-controller="LanAndHobs" asp-action="Create" class="btn btn-secondary" style="position: relative;"> Back </a>
+<a asp-controller="ProjectDetails" asp-action="Create" class="btn btn-success" style="position: relative;">next >>> Project Details </a>
+
+

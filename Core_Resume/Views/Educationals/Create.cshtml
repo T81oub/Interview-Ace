@@ -1,0 +1,71 @@
+﻿@model Core_Resume.Models.Educational
+
+@{ ViewData["Title"] = "Create"; }
+<h4>Educational</h4>
+
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label asp-for="State" class="control-label"></label>
+                    <input asp-for="State" class="form-control" />
+                    <span asp-validation-for="State" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label asp-for="City" class="control-label"></label>
+                    <input asp-for="City" class="form-control" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label asp-for="School_Or_College" class="control-label"></label>
+                    <input asp-for="School_Or_College" class="form-control" />
+                    <span asp-validation-for="School_Or_College" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-sm-6">
+                    <label asp-for="Board_or_Uni" class="control-label"></label>
+                    <input asp-for="Board_or_Uni" class="form-control" />
+                    <span asp-validation-for="Board_or_Uni" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label asp-for="Standard_or_Degree" class="control-label"></label>
+                    <input asp-for="Standard_or_Degree" class="form-control" />
+                    <span asp-validation-for="Standard_or_Degree" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label asp-for="Field" class="control-label"></label>
+                    <input asp-for="Field" class="form-control" />
+                    <span asp-validation-for="Field" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label asp-for="year" class="control-label"></label>
+                    <input asp-for="year" class="form-control" />
+                    <span asp-validation-for="year" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label asp-for="cgpa" class="control-label"></label>
+                    <input asp-for="cgpa" class="form-control" />
+                    <span asp-validation-for="cgpa" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="status" /> @Html.DisplayNameFor(model => model.status)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

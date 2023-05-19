@@ -1,0 +1,14 @@
+﻿@using Microsoft.AspNetCore.Http;
+@{
+    ViewData["Title"] = "Verify";
+}
+
+<h5 style="color:red">@ViewBag.essage</h5>
+@if (Context.Session.GetString("Username") == null)
+{
+<div>
+    <a class="form-group" asp-area="" asp-controller="Registration" asp-action="Register">
+        <input type="submit" value="Register" class="btn btn-primary" />
+    </a>
+</div>
+}

@@ -1,0 +1,42 @@
+﻿@model Core_Resume.Models.ProjectDetails
+
+<h4>ProjectDetails</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Projectname" class="control-label"></label>
+                <input asp-for="Projectname" class="form-control" />
+                <span asp-validation-for="Projectname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="projectLink" class="control-label"></label>
+                <input asp-for="projectLink" class="form-control" />
+                <span asp-validation-for="projectLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<table>
+    <tr>
+        <th>Projects Name </th>
+    </tr>
+    @foreach (ProjectDetails l in ViewBag.List)
+    {
+        <tr>
+            <td>@l.Projectname</td>
+        </tr>
+    }
+</table>
+<a asp-controller="Skills" asp-action="Create" class="btn btn-secondary" style="position: relative;"> Back </a>
+<a href="@Url.Action("Index", "Resume")" class="btn btn-success" style="position: relative; right: -50%;"> Next Step>> Download </a>
+
+
+
+

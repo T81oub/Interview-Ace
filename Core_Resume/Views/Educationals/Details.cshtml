@@ -1,0 +1,77 @@
+﻿@model Core_Resume.Models.Educational
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div>
+    <h4>Educational</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.State)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.City)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.School_Or_College)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.School_Or_College)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Board_or_Uni)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Board_or_Uni)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Standard_or_Degree)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Standard_or_Degree)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Field)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Field)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.year)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.year)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.cgpa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.cgpa)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.status)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-controller="Persnolas" asp-action="Details" class="btn btn-secondary" style="position: relative;"> Back </a>
+    <a asp-controller="Educationals" asp-action="Edit" class="btn btn-dark" style="position: relative;">Edit </a>
+    <a asp-controller="Educationals" asp-action="Delete" class="btn btn-danger" style="position: relative;">Delete </a>
+
+
+    <a href="@Url.Action("Details", "WorkHistories")" class="btn btn-success" style="position: relative; right: -50%;"> Next Step>> Work Experience </a>
+</div>
+<hr/>

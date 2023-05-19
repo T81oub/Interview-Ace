@@ -1,0 +1,345 @@
+﻿
+
+
+@model dynamic
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script type="text/javascript">$(document).ready(function () {
+        $("#btnPrint").click(function () {
+            $(".ignoreForPdf").hide();
+            window.print();
+            alert("Your resume is downloaded");
+            $(".ignoreForPdf").show();
+        })
+    });</script>
+
+
+<div class="buttons-download">
+<a asp-controller="ProjectDetails" asp-action="Create" class="btn btn-secondary ignoreForPdf" style="position: relative; "> Back </a>
+    <button id="btnPrint" class="btn btn-danger ignoreForPdf">Print</button>
+</div>
+<div class="main-body">
+    @if (Model.Personal != null)
+    {
+       
+<div class="left">
+   <section class="profilePhoto">
+    @if (@Model.Personal.photo != null)
+    {
+        <div class="col-sm-10">
+            <img style="width:250px; height:300px; " src="data:image;base64,@Convert.ToBase64String(Model.Personal.photo)" />
+        </div>
+    }
+    else
+    {
+        @if (String.Equals(@Model.Personal.Gender, "F"))
+        {
+            <div class="col-sm-10">
+                <img style="width:250px; height:300px; " src="https://cdn1.vectorstock.com/i/1000x1000/08/60/profile-icon-female-user-person-avatar-symbol-vector-20910860.jpg" />
+            </div>
+        }
+        else
+        {
+            <div class="col-sm-10">
+                <img style="width:250px; height:300px; " src="https://cdn4.vectorstock.com/i/1000x1000/08/38/avatar-icon-male-user-person-profile-symbol-vector-20910838.jpg" />
+            </div>
+        }
+    }
+    </section> 
+
+     <section class="info-section">
+       <div class="name">
+        <div>
+            @Model.Personal.FirstName
+        </div>
+        <div>
+            @Model.Personal.LastName
+        </div>
+       </div>
+        
+        <div>
+           @Model.Personal.Tel
+        </div>
+        <div>
+           @Model.Personal.Address
+        </div>
+        
+    </section>
+    <section class="personal">
+       <div class="heading">Personal Details</div>
+        <div class="row">
+            <div class="label">
+                DateOfBirth
+            </div>
+            <div> 
+                @Model.Personal.DateOfBirth
+            </div>
+        </div>
+    <div class="row">
+            <div class="label">
+                Nationality
+            </div>
+            <div >
+                @Model.Personal.Nationality
+            </div>
+    </div>
+    <div class="row">
+        <div class="label">
+            Educational Level
+        </div>
+        <div>
+            @Model.Personal.EducationalLevel
+        </div>
+    </div>
+    <div class="row">
+        <div class="label" >
+            Gender
+        </div>
+        <div >
+            @Model.Personal.Gender
+        </div>
+    </div>
+    <div class="row">
+        <div class="label">
+            marital status
+        </div>
+        <div>
+            @Model.Personal.marital_status
+        </div>
+   </div>
+    </section>
+
+    <section class="skills">
+    
+          <div class="heading">Skills</div>
+      
+            @foreach (Skills l in Model.Skills)
+            {
+                <div>
+                    @l.Skillname
+                </div>
+            }
+       
+    </section>
+   <section class="languages">
+    
+          <div class="heading">Known languages</div>
+      
+            @foreach (LanAndHob l in Model.Languages)
+            {
+                <div>
+                    @l.Language
+                </div>
+            }
+     
+
+    </section>
+
+    
+</div>
+<div class="right">
+   <section class="education">
+        <h4 class="heading">Educational</h4>
+        <hr />
+        <div class="row">
+            <div class="label">
+                State / Province
+            </div>
+            <div>
+                @Model.Education.State
+            </div>
+        </div>
+        <div class="row">
+            <div class="label">
+                City
+            </div>
+            <div>
+                @Model.Education.City
+            </div>
+        </div>
+        <div class="row">
+            <div class="label">
+                School / College
+            </div>
+            <div>
+                @Model.Education.School_Or_College
+            </div>
+        </div>
+        
+            <div class="row">
+                <div class="label">
+                    Board/University
+                </div>
+                <div>
+                    @Model.Education.Board_or_Uni
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">
+                    Qualification
+                </div>
+                <div>
+                    @Model.Education.Standard_or_Degree
+                </div>
+            </div>
+        <div class="row">
+                <div class="label">
+                    Stream
+                </div>
+                <div>
+                    @Model.Education.Field
+                </div>
+        </div>
+        <div class="row">
+                <div class="label">
+                    Passing Year
+                </div>
+                <div >
+                    @Model.Education.year
+                </div>
+        </div>
+        <div class="row">
+                <div class="label">
+                    CGPA (Optional)
+                </div>
+                <div >
+                    @Model.Education.cgpa
+                </div>
+        </div>
+            <div class="row">
+                <div class="label">
+                    Currently I'm Studying Here.
+                </div>
+                <div >
+                    @if(Model.Education.status){
+                        <h5>yes</h5>
+                    }else{
+                        <h5>No</h5>
+                    }
+                </div>
+            </div>
+    </section>
+  
+        @if (Model.WorkHistory != null)
+        {
+             <section class="workHistory">
+            <h4 class="heading">WorkHistory</h4>
+            <hr />
+           <div class="row"> 
+                <div class="label">
+                    JobTitle
+                </div>
+                <div>
+                    @Model.WorkHistory.JobTitle
+                </div>
+            </div>
+              <div class="row"> 
+                <div class="label">
+                    Employer
+                </div>
+                <div>
+                    @Model.WorkHistory.Employer
+                </div>
+            </div>
+              <div class="row"> 
+                <div class="label">
+                    City
+                </div>
+                <div>
+                    @Model.WorkHistory.City
+                </div>
+            </div>
+              <div class="row"> 
+                <div class="label">
+                    State
+                </div>
+                <div>
+                    @Model.WorkHistory.State
+                </div>
+            </div>
+              <div class="row"> 
+                <div class="label">
+                    StartDate
+                </div>
+                <div>
+                    @Model.WorkHistory.StartDate
+                </div>
+              </div>
+                <div class="row"> 
+                <div class="label">
+                    EndDate
+                </div>
+                <div>
+                    @Model.WorkHistory.EndDate
+                </div>
+            </div>
+              <div class="row"> 
+                <div class="label">
+                    I currently working here
+                </div>
+                <div>
+                    @if(Model.WorkHistory.status){
+                        <h5>yes</h5>
+                    }else{
+                        <h5>No</h5>
+                    }
+                  
+                </div>       
+         </div>
+         </section>
+        }
+ 
+   <section class="summry"> 
+   @if(Model.Summry != null)
+   {
+         <h4 class="heading">Summry_CarrerObjective</h4>
+            <hr />
+            <div class="row">
+                <div class="label">
+                    CarrerObjective
+                </div>
+                <div class="col-sm-10">
+                    @Model.Summry.CarrerObjective
+                </div>
+             </div>
+             <div class="row">
+                <div class="label">
+                    Summry
+                </div>
+                <div class="col-sm-10">
+                    @Model.Summry.Summry
+                </div>
+            </div>
+   }
+   </section>
+
+    <section class="projects">
+    
+          <div class="heading">projects</div>
+          <hr>
+            @foreach (ProjectDetails l in Model.Projects)
+            {
+               <div class="row">
+                    <div class="label">
+                        @l.Projectname
+                    </div>
+                    <div>
+                        @l.projectLink
+                    </div>
+               </div>
+            }
+     
+
+    </section>
+</div>
+}
+</div>
+
