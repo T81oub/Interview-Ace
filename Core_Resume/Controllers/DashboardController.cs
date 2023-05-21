@@ -16,7 +16,7 @@ namespace Core_Resume.Controllers
         private readonly DataBaseContext _context;
 
         private readonly HttpClient _httpClient;
-        private readonly string _apiKey = "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";
+        private readonly string _apiKey = "your_chatgpt_api_key";
         static private List<ChatHistory> _chatHistory = new List<ChatHistory>();
         static private List<FeedbackHistory> _feedbackHistory = new List<FeedbackHistory>();
 
